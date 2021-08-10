@@ -24,13 +24,13 @@ class ServiceProvider extends BaseServiceProvider
         /**
          * 通知驱动
          */
-        $this->app->extend(Notifications\ChannelManager::class,function(Notifications\ChannelManager $channel)
+        $this->app->extend(Notifications\ChannelManager::class, function(Notifications\ChannelManager $channel)
         {
 
             /**
              * 华为推送
              */
-            $channel->extend('huawei_push',function(Application $app)
+            $channel->extend('huawei_push', function(Application $app)
             {
                 return new HuaweiPushChannel('huawei_push');
             });

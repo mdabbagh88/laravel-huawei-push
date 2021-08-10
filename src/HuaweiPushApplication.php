@@ -9,9 +9,9 @@ class HuaweiPushApplication extends Huawei\Application
 
     protected $cacheKey;
 
-    public function __construct($appid,$appsecret)
+    public function __construct($appid, $appsecret)
     {
-        parent::__construct($appid,$appsecret,Huawei\Constants::HW_TOKEN_SERVER,Huawei\Constants::HW_PUSH_SERVER);
+        parent::__construct($appid, $appsecret, Huawei\Constants::HW_TOKEN_SERVER, Huawei\Constants::HW_PUSH_SERVER);
         $this->cacheKey = "huawei-push-access-token-$appid-$appsecret";
         $tdt = Facades\Cache::get($this->cacheKey);
         if(!empty($tdt['token']))
@@ -29,7 +29,7 @@ class HuaweiPushApplication extends Huawei\Application
             Facades\Cache::put($this->cacheKey,[
                 'token'  => $this->accesstoken,
                 'expire' => $this->token_expiredtime,
-            ],intval(($this->token_expiredtime - time() - 60) / 60));
+            ], intval(($this->token_expiredtime - time() - 60) / 60));
         }
         else
         {

@@ -38,7 +38,7 @@ class HuaweiMessage
      */
     public $clickAction;
 
-    public function __construct($title = null,$body = null)
+    public function __construct($title = null, $body = null)
     {
         $this->clickAction = new Huawei\ClickAction();
         $this->clickAction->type(3);
@@ -95,9 +95,9 @@ class HuaweiMessage
     public function __call($fun,$args)
     {
         $has = false;
-        if(!in_array($fun,['notification','click_action']))
+        if(!in_array($fun, ['notification', 'click_action']))
         {
-            if(method_exists($this->clickAction,$fun) || in_array($fun,['clickType']))
+            if(method_exists($this->clickAction, $fun) || in_array($fun, ['clickType']))
             {
                 $has = true;
                 $f = $fun == 'clickType' ? 'type' : $fun;

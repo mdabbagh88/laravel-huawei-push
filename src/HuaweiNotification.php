@@ -10,8 +10,7 @@ use Opis\Closure\SerializableClosure;
 
 class HuaweiNotification extends Notification implements ShouldQueue
 {
-    use Queueable,
-        WithHuaweiNotification;
+    use Queueable, WithHuaweiNotification;
 
     protected $message = [];
 
